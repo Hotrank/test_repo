@@ -1,0 +1,27 @@
+name: Workflow - example
+
+on:
+  pull_request:
+    paths:
+      - 'src/**'
+      - '.github/workflows/example_workflow.yml'
+  push:
+    paths:
+      - 'src/**'
+      - '.github/workflows/example_workflow.yml'
+    branches:
+      - master
+
+
+jobs:
+  success-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: print success
+      run: echo "Success!"
+
+  failure-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print failure
+        run: echo "Fail!" && exit 1
