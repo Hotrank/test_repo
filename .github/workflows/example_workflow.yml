@@ -10,7 +10,7 @@ on:
       - 'src/**'
       - '.github/workflows/example_workflow.yml'
     branches:
-      - master
+      - main
 
 
 jobs:
