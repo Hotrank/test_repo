@@ -14,14 +14,17 @@ on:
 
 
 jobs:
-  success-job:
+  job_1:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
     steps:
-    - name: print success
-      run: echo "Success!"
+    - name: print job run
+      run: echo "Job 1 run"
 
-  failure-job:
+
+  job_2:
     runs-on: ubuntu-latest
+    needs: job_1
     steps:
-      - name: print failure
-        run: echo "Fail!" && exit 1
+      - name: print job run
+        run: echo "job 2 run."
