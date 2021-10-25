@@ -16,8 +16,11 @@ on:
 jobs:
   job_1:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+
     steps:
+    - name: test for early exit
+      if: github.event_name != 'push'
+      run: echo "skip job 1" && exit 0
     - name: print job run
       run: echo "Job 1 run"
 
