@@ -1,0 +1,3 @@
+3.8.18
+# Set the minimum version of Python so that Dependabot picks compatible packages.
+# TODO(ONEVERILY-29035): Change this when increasing the minimum version.

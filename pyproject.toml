@@ -1,0 +1,82 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "verily1"
+description = "verily1 python dependencies"
+version = "0.0.1"
+
+requires-python = ">=3.9.0, <3.10"
+
+classifiers = [
+    # This prevent accidental upload to PyPI.
+    # https://flit.pypa.io/en/latest/pyproject_toml.html#new-style-metadata
+    "Private :: Do Not Upload",
+    # Set a license for compatibility with future license checks.
+    "License :: Other/Proprietary License"
+]
+
+dependencies = [
+    "absl-py",
+    "deepdiff",
+    "docker",
+    "fhir.resources < 6.4.1",
+    "GitPython",
+    "google-cloud-aiplatform",
+    "google-cloud-aiplatform[prediction] >= 1.16.0",
+    "google-cloud-bigquery",
+    "google-cloud-logging",
+    "google-cloud-profiler",
+    "google-cloud-storage",
+    "google-fhir-r4",
+    "grpcio",
+    "grpcio-health-checking",
+    "grpc-interceptor",
+    "jinja2",
+    "numpy < 1.25",  # to support Python 3.8
+    "opentelemetry-api",
+    "opentelemetry-sdk",
+    "opentelemetry-exporter-gcp-trace",
+    "opentelemetry-propagator-gcp",
+    "pydantic",
+    "pydantic_core",
+    "PyYAML",
+    "protobuf"
+]
+
+[project.optional-dependencies]
+dev = [
+    "flit",
+    "git-filter-repo",
+    "isort",
+    "mypy",
+    "numpy < 1.25",  # to support Python 3.8
+    "parameterized",
+    "pip-tools",
+    "pylint",
+    "pytest",
+    "pytest-cov",
+    "toml",
+    "types-protobuf",
+    "types-PyYAML",
+    "wheel == 0.38.1",
+    "yapf"
+]
+
+[tool.mypy]
+ignore_missing_imports = true
+follow_imports = 'skip'
+# Respect follow_imports setting for stub (pyi) files.
+follow_imports_for_stubs = true
+# Don't check test files.
+exclude = ['.*test.*']
+
+[tool.yapf]
+based_on_style = "google"
+column_limit = 100
+indent_width = 4
+
+[tool.isort]
+profile = "google"
+line_length = 100
